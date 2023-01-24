@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.5;
+  @apply font-rubik;
+}
+input,
+button {
+  font: inherit;
+}
+@layer components {
+  #map {
+    @apply flex-1;
+  }
+  .main {
+    @apply w-full h-full pt-3 px-3 relative;
+    max-height: 14rem;
+  }
+
+  .heading {
+    @apply text-white font-medium text-center;
+    font-size: clamp(1rem, calc(5vw + 0.5rem), 2.5rem);
+    letter-spacing: 1.7px;
+  }
+  .form {
+    display: flex;
+    justify-content: center;
+    margin-block: 1rem;
+    margin-inline: auto;
+    width: min(30rem, 90%);
+  }
+  .form button {
+    @apply bg-black p-4 rounded-r-xl flex justify-center items-center;
+  }
+  .form input {
+    @apply rounded-l-xl focus:outline-none focus:border-transparent pl-3 py-2 text-veryDarkGray font-normal;
+    flex-grow: 11;
+    font-size: clamp(0.6rem, 5vw, 1.5rem);
+  }
+  .card {
+    @apply bg-white py-6  px-10 rounded-xl mx-auto relative flex flex-col   gap-4 justify-between;
+    bottom: 20%;
+    z-index: 99999;
+  }
+  @media (min-width: 768px) {
+    .card {
+      flex-direction: row;
+      max-width: fit-content;
+    }
+    .card > *:not(:last-child) {
+      @apply border-r-2 border-r-darkGray pr-6;
+    }
+  }
+  .card-info {
+    @apply text-darkGray uppercase text-sm font-normal flex flex-col items-center;
+  }
+  .card-info span {
+    @apply text-veryDarkGray text-lg font-bold;
+  }
+}
